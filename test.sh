@@ -18,7 +18,7 @@ reflector -c $iso -f 5 -l 20 --verbose --sort rate --save /etc/pacman.d/mirrorli
 
 
 #MAKE MOUNT DIRECTORY
-mkdir /mnt
+#mkdir /mnt
 
 
 #FORMAT DISK
@@ -46,9 +46,17 @@ y|Y|yes|Yes|YES)
 cfdisk
 ;;
 *) echo "you have declined disc formatting"
+echo "your partition table is now"
+lsblk
 ;;
 esac
 echo "your partition table is now"
 lsblk
-echo "your partition table is now"
-lsblk
+
+#Format the root partition: mkfs.ext4 /dev/root_partition
+#Initialise the swap partition: mkswap /dev/swap_partition
+#Mount the filesystem: mount /dev/root_partition /mnt
+#Enable swap: swapon /dev/swap_partition
+#Install essential packages: pacstrap /mnt base linux linux-firmware nano
+#Generate fstab: genfstab -U /mnt >> /mnt/etc/fstab
+#Check fstab: cat /mnt/etc/fstab
