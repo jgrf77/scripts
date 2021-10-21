@@ -48,3 +48,7 @@ cfdisk
 *) echo "you have declined disc formatting"
 ;;
 esac
+echo "your partition table is now"
+lsblk
+echo "your partition table is now"
+lsblk
