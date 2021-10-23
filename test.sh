@@ -50,13 +50,22 @@ echo "your partition table is now"
 lsblk
 ;;
 esac
+clear
 echo "your partition table is now"
 lsblk
 
-#Format the root partition: mkfs.ext4 /dev/root_partition
-#Initialise the swap partition: mkswap /dev/swap_partition
-#Mount the filesystem: mount /dev/root_partition /mnt
-#Enable swap: swapon /dev/swap_partition
+#Format the root partition: 
+mkfs.ext4 /dev/root_partition
+
+#Initialise the swap partition: 
+mkswap /dev/swap_partition
+
+#Mount the filesystem: 
+mount /dev/root_partition /mnt
+
+#Enable swap: 
+swapon /dev/swap_partition
+
 #Install essential packages: pacstrap /mnt base linux linux-firmware nano
 #Generate fstab: genfstab -U /mnt >> /mnt/etc/fstab
 #Check fstab: cat /mnt/etc/fstab
