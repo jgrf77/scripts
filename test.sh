@@ -46,12 +46,14 @@ y|Y|yes|Yes|YES)
 cfdisk
 ;;
 *) echo "you have declined disc formatting"
-echo "your partition table is now"
+echo "Your partition table is now:
+"
 fdisk -l
 ;;
 esac
 clear
-echo "your partition table is now"
+echo "Your partition table is now:
+"
 fdisk -l
 
 #Format the root partition: 
