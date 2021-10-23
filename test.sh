@@ -55,16 +55,16 @@ echo "your partition table is now"
 lsblk
 
 #Format the root partition: 
-mkfs.ext4 /dev/root_partition
+mkfs.ext4 /dev/sda1 #needs to be made generic
 
 #Initialise the swap partition: 
-mkswap /dev/swap_partition
+mkswap /dev/sda2 #needs to be made generic
 
 #Mount the filesystem: 
-mount /dev/root_partition /mnt
+mount /dev/sda1 /mnt #needs to be made generic
 
 #Enable swap: 
-swapon /dev/swap_partition
+swapon /dev/sda2 #needs to be made generic
 
 #Install essential packages: pacstrap /mnt base linux linux-firmware nano
 #Generate fstab: genfstab -U /mnt >> /mnt/etc/fstab
