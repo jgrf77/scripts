@@ -47,24 +47,24 @@ cfdisk
 ;;
 *) echo "you have declined disc formatting"
 echo "your partition table is now"
-lsblk
+fdisk -l
 ;;
 esac
 clear
 echo "your partition table is now"
-lsblk
+fdisk -l
 
 #Format the root partition: 
-mkfs.ext4 /dev/$(DISK)1 #needs to be made generic
+mkfs.ext4 /dev/${DISK}1 #needs to be made generic
 
 #Initialise the swap partition: 
-mkswap /dev/$(DISK)2 #needs to be made generic
+mkswap /dev/${DISK}2 #needs to be made generic
 
 #Mount the filesystem: 
-mount /dev/$(DISK)1 /mnt #needs to be made generic
+mount /dev/${DISK}1 /mnt #needs to be made generic
 
 #Enable swap: 
-swapon /dev/$(DISK)2 #needs to be made generic
+swapon /dev/${DISK}2 #needs to be made generic
 
 #Install essential packages: pacstrap /mnt base linux linux-firmware nano
 #Generate fstab: genfstab -U /mnt >> /mnt/etc/fstab
