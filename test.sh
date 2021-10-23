@@ -68,6 +68,16 @@ mount /dev/${DISK}1 /mnt #needs to be made generic
 #Enable swap: 
 swapon /dev/${DISK}2 #needs to be made generic
 
-#Install essential packages: pacstrap /mnt base linux linux-firmware nano
-#Generate fstab: genfstab -U /mnt >> /mnt/etc/fstab
+#Install essential packages: 
+pacstrap /mnt base linux linux-firmware nano
+
+#Generate fstab:
+genfstab -U /mnt >> /mnt/etc/fstab
+
 #Check fstab: cat /mnt/etc/fstab
+
+#Chroot into Arch install
+arch-chroot /mnt
+
+#echo "Welcome to your new Arch Linux install"
+echo "Welcome to your new Arch Linux install"
