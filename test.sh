@@ -72,6 +72,7 @@ swapon /dev/${DISK}2 #needs to be made generic
 pacstrap /mnt base linux linux-firmware nano
 
 #Generate fstab:
+echo "Generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #Check fstab: cat /mnt/etc/fstab
