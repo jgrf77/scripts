@@ -1,5 +1,10 @@
 #!/bin/bash
 
 if [[ ! -d "/sys/firmware/efi" ]] 
+then
 echo "this system is efi"
 fi
+
+#if /sys/firmware/efi exists
+#
+#
