@@ -3,6 +3,6 @@
 if [[ -d "/sys/firmware/efi" ]]; then
 	echo "this system is efi"
 else
-	echo "this script is not in efi"
+	echo "this system is not in efi"
 fi
 
