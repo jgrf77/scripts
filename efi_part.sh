@@ -1,4 +1,34 @@
 #!/bin/bash
+##################################################
+########## Hard Disk Partitioning Variable########
+# ANTENTION, this script erases ALL YOU HD DATA (specified bt $HD)
+HD=/dev/sda
+# Boot Partition Size: /boot
+BOOT_SIZE=200
+# Root Partition Size: /
+ROOT_SIZE=10000
+# Swap partition size: /swap
+SWAP_SIZE=2000
+# The /home partition will occupy the remain free space
+
+# Partitions file system
+BOOT_FS=ext4
+HOME_FS=ext4
+ROOT_FS=ext4
+
+######## Auxiliary variables. THIS SHOULD NOT BE ALTERED
+BOOT_START=1
+BOOT_END=$(($BOOT_START+$BOOT_SIZE))
+
+SWAP_START=$BOOT_END
+SWAP_END=$(($SWAP_START+$SWAP_SIZE))
+
+ROOT_START=$SWAP_END
+ROOT_END=$(($ROOT_START+$ROOT_SIZE))
+
+HOME_START=$ROOT_END
+#####################################################
+
 
 #  dd bs=512 if=/dev/zero of=/dev/"${HD}" count=8192
 #  dd bs=512 if=/dev/zero of=/dev/"${HD}" count=8192 seek=$((`blockdev --getsz /dev/"${TRGTDRV}"` - 8192))
