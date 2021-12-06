@@ -2,7 +2,7 @@
 ##################################################
 ########## Hard Disk Partitioning Variable########
 # ANTENTION, this script erases ALL YOU HD DATA (specified bt $HD)
-HD=/dev/sda
+HD=sda #CHANGED FROM /dev/sda
 # Boot Partition Size: /boot
 BOOT_SIZE=200
 # Root Partition Size: /
@@ -31,7 +31,7 @@ HOME_START=$ROOT_END
 
 
 #  dd bs=512 if=/dev/zero of=/dev/"${HD}" count=8192
-#  dd bs=512 if=/dev/zero of=/dev/"${HD}" count=8192 seek=$((`blockdev --getsz /dev/"${TRGTDRV}"` - 8192))
+#  dd bs=512 if=/dev/zero of=/dev/"${HD}" count=8192 seek=$((`blockdev --getsz /dev/"${HD}"` - 8192))
 
   #Clear clear partition data and set to GPT disk with 2048 alignment
   sgdisk -Z ${HD} # zap all on disk
