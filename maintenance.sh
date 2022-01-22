@@ -31,7 +31,7 @@ function paccache {
 function orphan {
    clear
 
-	pacman -Rs $ (pacman -Qdtq)
+	#pacman -Rs $ (pacman -Qdtq)
 
 }
 
