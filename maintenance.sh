@@ -11,7 +11,7 @@ function mirrors {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 
 	#scan the 20 most recently updated mirrors from country ($iso) and update mirrorlist to contain the 5 fastest sorted rate (speed)
-	sudo reflector -c $iso -f 5 -l 20 --verbose --sort rate --save /etc/pacman.d/mirrorlist
+	reflector -c $iso -f 5 -l 20 --verbose --sort rate --save /etc/pacman.d/mirrorlist
 }
 
 function update {
