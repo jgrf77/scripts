@@ -111,7 +111,7 @@ do
       clear
       echo "Sorry, wrong selection";;
    esac
-   echo -en "\n\n\t\t\tHit any key to continue"
+   echo -en "\n\n\t\t\tComplete. Hit any key to continue"
    read -n 1 line
 done
 clear
